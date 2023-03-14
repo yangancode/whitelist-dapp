@@ -43,7 +43,7 @@ export default function Home() {
   }
 
 
-  const addAddressToWhitelist = async () => {
+  const clickToAddAddressToWhitelist = async () => {
     try {
       const signer = await getProviderOrSigner(true);
 
@@ -53,10 +53,7 @@ export default function Home() {
 
       console.log('contract', whitelistContract);
 
-      const list = await whitelistContract.addAddressToWhitelist;
-      console.log('list', list);
-
-      const tx = await whitelistContract.addAddressToWhitelist();
+      const tx = await whitelistContract.addAddressToWhiteList();
       setLoading(true);
 
       await tx.wait();
@@ -127,7 +124,7 @@ export default function Home() {
         return <button className={styles.button}>Loading...</button>
       }else {
         return (
-          <button onClick={addAddressToWhitelist} className={styles.button}>Join the WhiteList</button>
+          <button onClick={clickToAddAddressToWhitelist} className={styles.button}>Join the WhiteList</button>
         )
       }
     }
